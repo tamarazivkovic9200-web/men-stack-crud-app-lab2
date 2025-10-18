@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Cars</title>
+</head>
+<body>
+<h1>All Cars</h1>
+<a href="/cars/new">Add New Car</a>
+
+<ul>
+<% cars.forEach(car => { %>
+  <li>
+    <a href="/cars/<%= car._id %>">
+      <%= car.make %> <%= car.model %> (<%= car.year %>)
+    </a>
+    - <%= car.color %> <% if(car.isElectric){ %>⚡<% } %>
+
+    <a href="/cars/<%= car._id %>/edit">Edit</a>
+    <form action="/cars/<%= car._id %>?_method=DELETE" method="POST" style="display:inline;">
+      <button type="submit">Delete</button>
+    </form>
+  </li>
+<% }) %>
+</ul>
+</body>
+</html>

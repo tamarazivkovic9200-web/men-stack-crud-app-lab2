@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= car.make %> <%= car.model %></title>
+</head>
+<body>
+<h1><%= car.make %> <%= car.model %></h1>
+<p>Year: <%= car.year %></p>
+<p>Color: <%= car.color %></p>
+<p>Electric: <%= car.isElectric ? 'Yes ⚡' : 'No' %></p>
+
+<a href="/cars">Back to all cars</a> |
+<a href="/cars/<%= car._id %>/edit">Edit</a>
+
+<form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete</button>
+</form>
+</body>
+</html>
