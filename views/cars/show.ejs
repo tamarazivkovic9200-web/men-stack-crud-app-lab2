@@ -7,7 +7,13 @@
 <h1><%= car.make %> <%= car.model %></h1>
 <p>Year: <%= car.year %></p>
 <p>Color: <%= car.color %></p>
-<p>Electric: <%= car.isElectric ? 'Yes ⚡' : 'No' %></p>
+<p>Electric:
+  <% if (car.isElectric) { %>
+    Yes
+  <% } else { %>
+    No
+  <% } %>
+</p>
 
 <a href="/cars">Back to all cars</a> |
 <a href="/cars/<%= car._id %>/edit">Edit</a>
