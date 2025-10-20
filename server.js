@@ -23,10 +23,10 @@ app.set('views', path.join(__dirname, 'views'));
 // MongoDB connection
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
-  console.log(`✅ Connected to MongoDB: ${mongoose.connection.name}`);
+  console.log(`Connected to MongoDB: ${mongoose.connection.name}`);
 });
 
-// ===== ROUTES =====
+
 
 // Landing page
 app.get('/', (req, res) => {

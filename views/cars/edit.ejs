@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Edit Car</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <title>Edit <%= car.make %> <%= car.model %></title>
 </head>
 <body>
-<h1>Edit Car</h1>
-<form action="/cars/<%= car._id %>?_method=PUT" method="POST">
-  <label>Make:</label><input type="text" name="make" value="<%= car.make %>" required><br>
-  <label>Model:</label><input type="text" name="model" value="<%= car.model %>" required><br>
-  <label>Year:</label><input type="number" name="year" value="<%= car.year %>" required><br>
-  <label>Color:</label><input type="text" name="color" value="<%= car.color %>"><br>
-  <label>Electric?</label>
-  <input type="checkbox" name="isElectric" <%= car.isElectric ? 'checked' : '' %>><br>
-  <button type="submit">Update Car</button>
-</form>
-<a href="/cars/<%= car._id %>">Cancel</a>
+  <h1>Edit <%= car.make %> <%= car.model %></h1>
+
+  <form action="/cars/<%= car._id %>?_method=POST" method="POST">
+    <label for="make">Make:</label>
+    <input type="text" name="make" id="make" value="<%= car.make %>" required />
+
+    <label for="model">Model:</label>
+    <input type="text" name="model" id="model" value="<%= car.model %>" required />
+
+    <label for="year">Year:</label>
+    <input type="number" name="year" id="year" value="<%= car.year %>" required />
+
+    <label for="color">Color:</label>
+    <input type="text" name="color" id="color" value="<%= car.color %>" />
+
+    <div class="checkbox-div">
+      <label for="isElectric">Electric?</label>
+      <input
+        type="checkbox"
+        name="isElectric"
+        id="isElectric"
+        <% if (car.isElectric) { %>checked<% } %>
+      />
+    </div>
+
+    <button type="submit">Update Car</button>
+  </form>
+
+  <a href="/cars">Back to Cars</a>
 </body>
 </html>
